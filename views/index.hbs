@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> {{! bootstrap 5.0.2 link}}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />  {{!font awesome cdn link}}
+
+    <link rel="stylesheet" href="/static/css/style.css"> 
+
+    <title>Dynamic Website using Node Js</title>
+  </head>
+  <body>
+    {{> navbar data = details}}  {{!passing details to data (linking database)}}
+
+
+    {{!-- This Banner-1 Section --}}
+
+    <section class="banner1_section py-5 mb-4 background-3">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Become Share Market Expert with Our Industry Ready Course</h2>
+            <p>We provide you lifetime Mentor support + access to GTF Trader community of your batch</p>
+            <p>
+              <img src="https://www.gettogetherfinance.com/images/frontend/cap.png" alt="">
+              &nbsp;Enroll Now
+            <p/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{!-- Services Section --}}
+    <section id="services_section" class="py-4">
+      <div class="container">
+        <h1 class="text-center text-secondary">We Offer following Stock Trading Courses</h1>
+
+        <div class="row mt-5">
+
+         {{#each services}}
+
+        {{!-- first-service-column --}}
+        <div class="col-md-4">
+
+           <div class="card">
+              <div class="card-body">
+                <div class="container text-center py-3">
+                  <i class="{{this.icon}} service_icon"></i>
+                </div>
+                <h5 class="card-title">{{this.title}}</h5>
+                <p>{{this.description}}</p>
+
+                {{!-- <a href="{{this.link}}">{{this.linkText}}</a> --}}
+                {{!-- <a href="#!">Support</a> --}}
+                <button type="button" class="btn btn-warning m-2" disabled>{{this.amount}}</button>
+                <button type="button" class="btn btn-success m-2">{{this.buy}}</button>
+
+              </div>
+            </div>
+          </div>
+
+          {{/each}}
+
+        </div>
+      </div>
+
+    </section>
+
+
+      {{!--  Banner 2 section--}}
+
+      <section class="banner2_section py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center pt-5 mt-5">
+              {{!-- Left Side --}}
+              <h3>We work for People, not for Money</h3>
+              <h4>Make a <font color= '#00b858'>Decision</font></h4>
+              <p>It’s time to become financially independent</p>
+            </div>
+            <div class="col-md-6 text-center pb-4 mt-0">
+              {{!-- Right Side --}}
+              <img src="/static/images/howone.png" class="img-fluid" style="max-height: 350px" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {{!-- Banner-3 Section --}}
+
+      
+      <section class="banner3_section py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center pb-4 mt-0">
+              {{!-- Right Side --}}
+              <img src="/static/images/howthree.png" class="img-fluid" style="max-height: 350px" alt="">
+            </div>
+            <div class="col-md-6 text-center pt-5 mt-5">
+              {{!-- Left Side --}}
+              <h3>We Are in Demand, </h3>
+              <h3><font color='#00b858'>Not Just in the Stock Market.</font></h3>
+              <h4><font color='#00b858'>Subscribe</font> to our Stock Trading Courses</h4>
+              <p>Get in depth knowledge of stock market by subscribing our Trading in the zone and GTF Options Courses.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+    {{!-- Contact Us and Pay Here Section --}}
+
+    <section id="contact_us_section" class="py-4 background-3">
+      <div class="container">
+        <h3 class="text-center fw-bold text-secondary mb-4">Contact Us / Pay Here</h3>
+        <div class="row">
+          <div class="col-md-12">
+
+            <form action="/process-contact-form" method="post">
+
+            <div class="mb-3">
+             <label for="exampleInputName" class="form-label">Your Name</label>
+            <input name="name" type="name" class="form-control" id="yourName">
+          </div>
+
+           <div class="mb-2"> 
+             <label for="exampleInputEmail1" class="form-label">Your Email address</label>
+             <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+             <div id="emailHelp" class="form-text"></div>
+          </div>
+
+          <div class="mb-3">
+             <label for="exampleInputNum" class="form-label">Your Contact Number</label>
+            <input name="phone" type="number" class="form-control" id="contactNumber">
+          </div>
+
+          <div class="mb-2">
+              <label for="app">Trading Account App</label>
+          </div>
+          <div class="mb-2">
+              <select name="app" id="app" name="app">
+                <option value="groww" selected>Groww</option>
+                <option value="zerodha">Zerodha</option>
+                <option value="upstox">Upstox</option>
+                <option value="octafx">OctaFx</option>
+                <option value="5paisa">5 Paisa</option>
+                <option value="other">Others</option>
+              </select>
+          </div>
+
+          <div class="mb-2 py-2">
+            <label for="disabledTextInput" class="form-label" >Pay Here</label>
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="9693583264@paytm, GPay, PhonePe or any BHIM UPI account" disabled>
+          </div>
+
+          <div class="mb-2 py-1">
+             <label for="exampleInputText" class="form-label">UPI / Payment Reference Number</label>
+            <input name="referenceNo" type="number" class="form-control" id="referenceNumber">
+          </div>
+          
+          <div class="form-floating py-2">
+            <textarea name="query" style="height: 130px;" class="form-control" placeholder="Enter your Query Here" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">Your Query</label>
+          </div>
+
+          <div class="container text-center mt-3">
+            <button type="submit" class="btn btn-success fw-bold">Submit</button>
+          </div>
+
+         </form>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+      {{!-- About Section --}}
+
+      <section id="about_section" class="about_section text-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+            
+            <h3 class="text-secondary mb-2">About Us</h3>
+            <p>Since 2015, we helped people earn high incomes by investing in the stock market
+            </p>
+            <p class="mt-2 mb-1 fw-bold">It's all starts with a WHY…</p>
+            <p>Choosing stock market as a first source of income is a worrisome decision. The need to offer stock trading education to people came out as a daunting experience of losing money in the stock market. Investing and trading in the Stock market is not a cup of tea for everyone. So, we at Get Together Finance are here to break a taboo and bridge that gap between your share market knowledge and successful earnings.
+            </p>
+            <p>We are passionate about swing trading techniques, chart reading techniques, and short term trading techniques that attract powerful earnings in the stock market. The institute offers offline/online stock market classes in Jaipur and share market courses to assist individuals step forward with a positive attitude in the finance platform.
+            </p>
+
+            <button class="btn btn-success">Contact Us</button>
+            </div>
+        </div>
+        </div>
+      </section>
+
+
+      {{!-- Footer Section --}}
+       
+       <div class="footer background-3 text-center py-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <span>©Copyright 2022. GetTogetherfinance. All Rights Reserved</span>
+            </div>
+          </div>
+        </div>
+       </div>
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

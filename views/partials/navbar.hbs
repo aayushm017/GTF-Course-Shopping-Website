@@ -1,0 +1,28 @@
+<nav class="navbar border-bottom navbar-expand-lg py-0 navbar-light bg-light"> {{! py -- padding y 3-size}}
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="{{data.brandIconUrl}}" alt="" width="185" height="56" style="border-radius:10%" class="d-inline-block align-text-top">
+    {{!-- {{data.brandName}} --}}
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> {{! ms means marging start auto -- navbar will move towards right side}}
+
+        {{#each data.links}}  {{! data.links array is being repeated,k we do not have to use links again and again}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{this.url}}">{{this.label}}</a>
+        </li>
+        {{/each}}
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+{{!-- https://i.vimeocdn.com/portrait/50588357_165x60?subrect=0%2C0%2C598%2C598&r=cover --}}
+{{!-- /static/images/1660288554-5020-2-3.png --}}
