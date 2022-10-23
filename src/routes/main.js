@@ -8,7 +8,7 @@ const Contact = require('../models/Contact');
 const response = require('express');
 
 //Configuring routes 
-routes.get("/", async  (req, res) => {
+routes.get("/", async (req, res) => {
     const details = await Detail.findOne({ "_id": "6353ae8921b0c824293c426a" });
     const services = await Service.find();
 
@@ -30,7 +30,6 @@ routes.post("/process-contact-form", async(req, res) => {
     // console.log(req.body);
     //save the data to db
     try {
-
         const data = await Contact.create(req.body);
         // console.log(data);
         res.redirect("/");

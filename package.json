@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "this is project for backend development",
   "main": "index.js",
+  "engines": {
+    "node": "16.17.1",
+    "npm": "8.12.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/app.js -e js,hbs"
@@ -11,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "dot-env": "^0.0.1",
     "express": "^4.18.1",
     "hbs": "^4.2.0",
     "mongoose": "^6.6.4"

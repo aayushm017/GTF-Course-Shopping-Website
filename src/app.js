@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const hbs = require("hbs"); //for configuration we require to import hbs
 const app = express();
@@ -6,8 +7,9 @@ const bodyParser = require('body-parser');
 const routes = require("./routes/main"); //using routes which is being exported
 const Detail = require("./models/Detail");
 const Service = require("./models/Service");
+var port = process.env.PORT || 5556;
 
-const DB = 'mongodb+srv://aayushm_017:scts9693@websitecluster.h4pbyyh.mongodb.net/menstack?retryWrites=true&w=majority';
+const DB = process.env.DATABASE;
 
 //static/css/style.css
 app.use("/static", express.static("public")); //if we want to fetch any file from public folder then we were using:-  localhost:5556/static/css/style.css
@@ -79,6 +81,17 @@ mongoose.connect(DB).then(()=>{
 }).catch((err)=> console.log(err));
 
 
-app.listen(process.env.PORT || 5556, () => {
+app.listen(port, () => {
   console.log("Server Started");
 });
+
+
+// app.set( 'port', ( process.env.PORT || 5556 ));
+
+// // Start node server
+// app.listen(app.get('port'), function ()
+// {
+//   console.log( 'Node server is running on port ' + app.get( 'port' ));
+// });
+
+// "start": "nodemon src/app.js -e js,hbs"
