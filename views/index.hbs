@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="/static/css/style.css"> 
 
-    <title>Dynamic Website using Node Js</title>
+    <title>Get Together Finance</title>
   </head>
   <body>
     {{> navbar data = details}}  {{!passing details to data (linking database)}}
@@ -55,8 +55,6 @@
                 <h5 class="card-title">{{this.title}}</h5>
                 <p>{{this.description}}</p>
 
-                {{!-- <a href="{{this.link}}">{{this.linkText}}</a> --}}
-                {{!-- <a href="#!">Support</a> --}}
                 <button type="button" class="btn btn-warning m-2" disabled>{{this.amount}}</button>
                 <button type="button" class="btn background-3 m-2">{{this.buy}}</button>
 
@@ -72,12 +70,12 @@
     </section>
 
 
-      {{!--  Banner 2 section--}}
+      {{!--  Banner 2 section --}}
 
       <section class="banner2_section py-5">
         <div class="container">
           <div class="row">
-            <div class="col-md-6 text-center pt-5 mt-5">
+            <div class="col-md-6 text-center pt-5 mt-5">  {{!-- total 12 columns are there in bootstrap we are using 6col + 6 col becoz we want only 2 columns--}}
               {{!-- Left Side --}}
               <h3>We work for People, not for Money</h3>
               <h4>Make a <font color= '#00b858'>Decision</font></h4>
@@ -122,17 +120,17 @@
         <h3 class="text-center fw-bold text-secondary mb-4">Contact Us / Pay Here</h3>
         <div class="row">
           <div class="col-md-12">
-
-            <form action="/process-contact-form" method="post">
+ 
+            <form action="https://formspree.io/f/mpzewjwy" method="POST">
 
             <div class="mb-3">
              <label for="exampleInputName" class="form-label">Your Name</label>
-            <input name="name" type="name" class="form-control" id="yourName">
+            <input name="name" type="name" class="form-control" id="yourName" autocomplete="off" required>
           </div>
 
            <div class="mb-2"> 
              <label for="exampleInputEmail1" class="form-label">Your Email address</label>
-             <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+             <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
              <div id="emailHelp" class="form-text"></div>
           </div>
 
@@ -151,7 +149,7 @@
                 <option value="upstox">Upstox</option>
                 <option value="octafx">OctaFx</option>
                 <option value="5paisa">5 Paisa</option>
-                <option value="other">Others</option>
+                <option value="Others">Others</option>
               </select>
           </div>
 
