@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const routes = require("./routes/main"); //using routes which is being exported
 const Detail = require("./models/Detail");
 const Service = require("./models/Service");
-var port = process.env.PORT || 5556;
+let port = process.env.PORT || 5556;
 
 const DB = process.env.DATABASE;
 
@@ -18,12 +18,10 @@ app.use(bodyParser.urlencoded({
 }))
 app.use("", routes); //configured the route
 
-
 //(template engine) hbs
 app.set("view engine", "hbs");
 app.set("views", "views");   //views files store in views folder
-hbs.registerPartials("views/partials");  //connecting partials.. Using same navbar in different pages.
-
+hbs.registerPartials("views/partials");  //connecting/register partials.. Using same navbar in different pages.
 
 mongoose.connect(DB).then(()=>{
   console.log("DB Connected");
@@ -84,14 +82,3 @@ mongoose.connect(DB).then(()=>{
 app.listen(port, () => {
   console.log("Server Started");
 });
-
-
-// app.set( 'port', ( process.env.PORT || 5556 ));
-
-// // Start node server
-// app.listen(app.get('port'), function ()
-// {
-//   console.log( 'Node server is running on port ' + app.get( 'port' ));
-// });
-
-// "start": "nodemon src/app.js -e js,hbs"
