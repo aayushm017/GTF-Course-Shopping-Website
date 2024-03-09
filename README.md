@@ -1,7 +1,7 @@
 # GTF-Course-Shopping-Website
 https://odd-erin-snapper-suit.cyclic.app/
 
-*Warning - Continue to unsafe site to view project*
+*Warning - Continue to unsafe site to view project if using Microsoft Edge*
 
 Hi, Myself Aayush Marwah.
 In my final year, I have created this project.
