@@ -1,5 +1,6 @@
 # GTF-Course-Shopping-Website
 https://odd-erin-snapper-suit.cyclic.app/
+*Warning - Continue to unsafe site to view project*
 
 Hi, Myself Aayush Marwah,
 A final year student at RVS College of Engineering and Technology, Jamshedpur. 
